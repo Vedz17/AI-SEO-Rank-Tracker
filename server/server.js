@@ -8,19 +8,33 @@ import analysisRouter from "./routes/analysisRoutes.js";
 import { startRankTrackingCron } from "./cron/rankTrackingCron.js";
 import redis from "./config/redis.js";
 
+// Initialize Database Connection
 connectDB();
 
 const app = express();
 
-app.use(cors());
+// 🔥 FIXED CORS SETUP FOR PRODUCTION DEPLOYMENT
+app.use(cors({
+    origin: [
+        "http://localhost:5173", // Local testing ke liye
+        "https://ai-seo-rank-pilot.vercel.app" // Tumhari exact Vercel Deployment URL
+    ],
+    credentials: true, // Cookies/Headers tokens properly pass karne ke liye
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
 app.use(express.json());
 
+// Base Health Check Route
 app.get("/", (req, res) => res.send("Server is running"));
+
+// API Routes
 app.use("/api/auth", authRouter);
 app.use("/api/rank", rankRouter);
 app.use("/api/analysis", analysisRouter);
 
-// Start cron jobs
+// Start automation cron jobs
 startRankTrackingCron();
 
 const PORT = process.env.PORT || 5000;
