@@ -45,6 +45,7 @@ Follow these steps to run the project locally.
 Bash
 git clone [https://github.com/Vedz17/AI-SEO-Rank-Tracker.git](https://github.com/Vedz17/AI-SEO-Rank-Tracker.git)
 cd AI-SEO-Rank-Tracker
+
 2. Setup the Backend
 Bash
 cd server
@@ -62,6 +63,7 @@ Start the backend server:
 
 Bash
 npm run dev
+
 3. Setup the Frontend
 Open a new terminal window:
 
