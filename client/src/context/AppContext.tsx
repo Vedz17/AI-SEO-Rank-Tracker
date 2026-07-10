@@ -21,7 +21,7 @@ interface AppContextType {
 }
 
 // 🔥 BYPASS FIX: Hardcoded backend URL to completely avoid Vercel env variable issues
-const BACKEND_URL = "https://ai-seo-rank-tracker-server.onrender.com";
+const BACKEND_URL = "https://ai-seo-rank-tracker-hppo.onrender.com";
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
