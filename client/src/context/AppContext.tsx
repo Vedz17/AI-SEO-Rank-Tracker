@@ -20,7 +20,8 @@ interface AppContextType {
     logout: () => void;
 }
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+// 🔥 BYPASS FIX: Hardcoded backend URL to completely avoid Vercel env variable issues
+const BACKEND_URL = "https://ai-seo-rank-tracker-server.onrender.com";
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
